@@ -1,0 +1,28 @@
+{
+  "customerReviews": {
+    "blades": {
+      "hello-world": {
+        "title": "Hello world blade"
+      }
+    }
+  },
+  "permissions": {
+    "customerReviews:access": "Open CustomerReviews menu",
+    "customerReviews:create": "Create CustomerReviews related data",
+    "customerReviews:read": "View CustomerReviews related data",
+    "customerReviews:update": "Update CustomerReviews related data",
+    "customerReviews:delete": "Delete CustomerReviews related data"
+  },
+  "settings": {
+    "CustomerReviews": {
+      "CustomerReviewsPassword": {
+        "title": "CustomerReviews Password",
+        "description": "CustomerReviews Password setting"
+      },
+      "CustomerReviewsEnabled": {
+        "title": "CustomerReviews Enabled",
+        "description": "CustomerReviews Enabled setting"
+      }
+    }
+  }
+}
