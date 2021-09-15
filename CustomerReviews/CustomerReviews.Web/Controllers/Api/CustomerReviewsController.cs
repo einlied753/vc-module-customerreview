@@ -39,7 +39,7 @@ namespace CustomerReviews.Web.Controllers.Api
         /// <param name="customerReviews">Customer reviews</param>
         /// <returns></returns>
         [HttpPost]
-        [Route("")]
+        [Route("update")]
         [Authorize(ModuleConstants.Security.Permissions.Update)]
         public async Task<ActionResult> Update([FromBody] CustomerReview[] customerReviews)
         {
@@ -53,7 +53,7 @@ namespace CustomerReviews.Web.Controllers.Api
         /// <param name="ids">IDs</param>
         /// <returns></returns>
         [HttpDelete]
-        [Route("")]
+        [Route("delete")]
         [Authorize(ModuleConstants.Security.Permissions.Delete)]
         public async Task<ActionResult> Delete([FromQuery] string[] ids)
         {

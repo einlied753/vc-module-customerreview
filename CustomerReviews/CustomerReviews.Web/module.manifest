@@ -8,19 +8,38 @@
         <!--<dependency id="VirtoCommerce.Core" version="3.0.0" />-->
     </dependencies>
 
-    <title>CustomerReviews</title>
-    <description>Enter your module description here.</description>
+    <title>Sample Customer reviews module</title>
+    <description>Sample module demonstrating best practices in a real life example.</description>
     <authors>
         <author>Ein</author>
     </authors>
     <owners>
       <owner></owner>
     </owners>
-
     <releaseNotes>First version.</releaseNotes>
     <copyright>Copyright © 2021 . All rights reserved</copyright>
     <tags>extension module</tags>
   
     <assemblyFile>CustomerReviews.Web.dll</assemblyFile>
     <moduleType>CustomerReviews.Web.Module, CustomerReviews.Web</moduleType>
+	<permissions>
+		<group name="CustomerReviews">
+			<!--<permission id="customerReviews:access" name="Access" />-->
+			<!--<permission id="customerReviews:create" name="Create" />-->
+			<permission id="customerReviews:read" name="Read" />
+			<permission id="customerReviews:update" name="Update" />
+			<permission id="customerReviews:delete" name="Delete" />
+		</group>
+	</permissions>
+	<settings>
+		<group name="Store|General">
+			<setting>
+				<name>CustomerReviews.CustomerReviewsEnabled</name>
+				<valueType>boolean</valueType>
+				<defaultValue>false</defaultValue>
+				<title>Customer Reviews enabled</title>
+				<description>Flag to mark that customer reviews functionality is enabled</description>
+			</setting>
+		</group>
+	</settings>
 </module>

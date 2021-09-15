@@ -8,11 +8,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
-using VirtoCommerce.Platform.Core.Common;
 using VirtoCommerce.Platform.Core.Modularity;
 using VirtoCommerce.Platform.Core.Security;
 using VirtoCommerce.Platform.Core.Settings;
-using VirtoCommerce.Platform.Data.Extensions;
 
 namespace CustomerReviews.Web
 {
@@ -51,10 +49,16 @@ namespace CustomerReviews.Web
 
             using (var serviceScope = appBuilder.ApplicationServices.CreateScope())
             {
-                var dbContext = serviceScope.ServiceProvider.GetRequiredService<CustomerReviewsDbContext>();
-                dbContext.Database.MigrateIfNotApplied(MigrationName.GetUpdateV2MigrationName(ModuleInfo.Id));
-                dbContext.Database.EnsureCreated();
-                dbContext.Database.Migrate();
+                using (var dbContext = serviceScope.ServiceProvider.GetRequiredService<CustomerReviewsDbContext>())
+                {
+                    dbContext.Database.EnsureCreated();
+                    dbContext.Database.Migrate();
+                }
+
+                // var dbContext = serviceScope.ServiceProvider.GetRequiredService<CustomerReviewsDbContext>();
+                // dbContext.Database.MigrateIfNotApplied(MigrationName.GetUpdateV2MigrationName(ModuleInfo.Id));
+                // dbContext.Database.EnsureCreated();
+                // dbContext.Database.Migrate();
             }
         }
 
